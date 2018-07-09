@@ -1,0 +1,10 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Acceptic\TestRest\Api\Data\ShopperInterface"
+                type="Acceptic\TestRest\Model\Shopper" />
+    <preference for="Acceptic\TestRest\Api\ShopperRepositoryInterface"
+                type="Acceptic\TestRest\Model\ShopperRepository" />
+    <preference for="Acceptic\TestRest\Api\OrderManagementInterface"
+                type="Acceptic\TestRest\Model\Api\OrderManagement" />
+    <preference for="Acceptic\TestRest\Api\ShopperManagementInterface"
+                type="Acceptic\TestRest\Model\Api\ShopperManagement" />
+</config>
