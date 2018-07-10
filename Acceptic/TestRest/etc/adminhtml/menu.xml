@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Acceptic_TestRest::main"
+             resource="Acceptic_TestRest::main"
+             title="Acceptic Rest"
+             action="frontname/index/index"
+             module="Acceptic_TestRest"
+             sortOrder="10"
+        />
+        <add id="Acceptic_TestRest::shoppers"
+             parent="Acceptic_TestRest::main"
+             resource="Acceptic_TestRest::shoppers"
+             title="Shoppers"
+             action="acceptic_rest/shopper/index"
+             module="Acceptic_TestRest"
+             sortOrder="10"
+        />
+        <add id="Acceptic_TestRest::orders"
+             parent="Acceptic_TestRest::main"
+             resource="Acceptic_TestRest::orders"
+             title="Orders"
+             action="acceptic_rest/order/index"
+             module="Acceptic_TestRest"
+             sortOrder="10"
+        />
+    </menu>
+</config>
