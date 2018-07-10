@@ -66,7 +66,7 @@ class InstallSchema implements InstallSchemaInterface
                 Table::TYPE_TEXT,
                 20,
                 [],
-                'Shopper Phone'
+                'Shopper City'
             )->addColumn(
                 ShopperInterface::STREET_COLUMN,
                 Table::TYPE_TEXT,
@@ -75,10 +75,10 @@ class InstallSchema implements InstallSchemaInterface
                 'Shopper Street'
             )->addColumn(
                 ShopperInterface::HOUSE_NUMBER_COLUMN,
-                Table::TYPE_INTEGER,
-                4,
+                Table::TYPE_TEXT,
+                10,
                 [],
-                'Shopper Phone'
+                'Shopper House Number'
             )->setComment('Shopper Table');
             $installer->getConnection()->createTable($shopperTable);
         }
