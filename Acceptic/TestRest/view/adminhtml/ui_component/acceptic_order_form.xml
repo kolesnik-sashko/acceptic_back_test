@@ -21,7 +21,7 @@
     </argument>
     <dataSource name="acceptic_order_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="class" xsi:type="string">Acceptic\TestRest\Model\Order\DataProvider</argument>
             <argument name="name" xsi:type="string">acceptic_order_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">order_id</argument>
             <argument name="requestFieldName" xsi:type="string">order_id</argument>
@@ -54,34 +54,6 @@
                 </item>
             </argument>
         </field>
-        <field name="order_total">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Title</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="sortOrder" xsi:type="number">2</item>
-                    <item name="dataScope" xsi:type="string">title</item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
-                </item>
-            </argument>
-        </field>
-        <field name="token">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="sortOrder" xsi:type="number">3</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">wysiwyg</item>
-                    <item name="dataScope" xsi:type="string">content</item>
-                    <item name="label" xsi:type="string" translate="true">Content</item>
-                    <item name="template" xsi:type="string">ui/form/field</item>
-                    <item name="wysiwyg" xsi:type="boolean">true</item>
-                    <item name="rows" xsi:type="number">4</item>
-                </item>
-            </argument>
-        </field>
         <field name="shopper_id">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Acceptic\TestRest\Model\Source\ShoppersSelect</item>
@@ -90,6 +62,34 @@
                     <item name="sortOrder" xsi:type="number">2</item>
                     <item name="label" translate="true" xsi:type="string">Shopper</item>
                     <item name="formElement" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </field>
+        <field name="order_total">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Order Total</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="dataScope" xsi:type="string">order_total</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="order_token">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Token</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="sortOrder" xsi:type="number">4</item>
+                    <item name="dataScope" xsi:type="string">order_token</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>

@@ -2,10 +2,10 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">acceptic_order_listing.acceptic_order_listing_data_source</item>
-            <item name="deps" xsi:type="string">acceptic_order_listing.acceptic_order_listing_data_source</item>
+            <item name="provider" xsi:type="string">acceptic_shopper_listing.acceptic_shopper_listing_data_source</item>
+            <item name="deps" xsi:type="string">acceptic_shopper_listing.acceptic_shopper_listing_data_source</item>
         </item>
-        <item name="spinner" xsi:type="string">acceptic_orders_columns</item>
+        <item name="spinner" xsi:type="string">acceptic_shoppers_columns</item>
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
@@ -15,17 +15,17 @@
             </item>
         </item>
     </argument>
-    <dataSource name="acceptic_order_listing_data_source">
+    <dataSource name="acceptic_shopper_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">acceptic_order_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">order_id</argument>
-            <argument name="requestFieldName" xsi:type="string">order_id</argument>
+            <argument name="name" xsi:type="string">acceptic_shopper_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">shopper_id</argument>
+            <argument name="requestFieldName" xsi:type="string">shopper_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">order_id</item>
+                        <item name="indexField" xsi:type="string">shopper_id</item>
                     </item>
                 </item>
             </argument>
@@ -68,18 +68,18 @@
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="acceptic_orders_columns">
+    <columns name="acceptic_shoppers_columns">
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">order_id</item>
+                    <item name="indexField" xsi:type="string">shopper_id</item>
                     <item name="sortOrder" xsi:type="number">10</item>
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="order_id">
+        <column name="shopper_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
@@ -88,28 +88,52 @@
                 </item>
             </argument>
         </column>
-        <column name="shopper_name">
+        <column name="email">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Shopper Name</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
                 </item>
             </argument>
         </column>
-        <column name="order_total">
+        <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Order Total</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Acceptic\TestRest\Ui\Component\Listing\Order\Column\Action">
+        <column name="last_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Last Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="phone">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Phone</item>
+                </item>
+            </argument>
+        </column>
+        <column name="city">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">City</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Acceptic\TestRest\Ui\Component\Listing\Shopper\Column\Action">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">order_id</item>
+                    <item name="indexField" xsi:type="string">shopper_id</item>
                 </item>
             </argument>
         </actionsColumn>
