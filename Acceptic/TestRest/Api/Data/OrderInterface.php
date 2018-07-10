@@ -5,6 +5,7 @@ namespace Acceptic\TestRest\Api\Data;
 interface OrderInterface 
 {
     const CACHE_TAG = 'acceptic_rest_order';
+    const REGISTRY_KEY = 'acceptic_rest_order';
 
     /**
      * @return int

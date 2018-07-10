@@ -1,9 +1,11 @@
 <?php
+
 namespace Acceptic\TestRest\Api\Data;
 
 interface ShopperInterface 
 {
-    const CACHE_TAG = 'acceptic_rest_shopper';
+    const CACHE_TAG    = 'acceptic_rest_shopper';
+    const REGISTRY_KEY = 'acceptic_rest_shopper';
 
     /**
      * @return mixed
