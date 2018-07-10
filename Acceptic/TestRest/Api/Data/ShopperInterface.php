@@ -8,83 +8,83 @@ interface ShopperInterface
     const REGISTRY_KEY = 'acceptic_rest_shopper';
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail();
 
     /**
-     * @param $email
+     * @param string $email
      * @return ShopperInterface
      */
     public function setEmail($email);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName();
 
     /**
-     * @param $name
+     * @param string $name
      * @return ShopperInterface
      */
     public function setName($name);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLastName();
 
     /**
-     * @param $lastName
+     * @param string $lastName
      * @return ShopperInterface
      */
     public function setLastName($lastName);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPhone();
 
     /**
-     * @param $phone
+     * @param string $phone
      * @return ShopperInterface
      */
     public function setPhone($phone);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCity();
 
     /**
-     * @param $city
+     * @param string $city
      * @return ShopperInterface
      */
     public function setCity($city);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getStreet();
 
     /**
-     * @param $street
+     * @param string $street
      * @return ShopperInterface
      */
     public function setStreet($street);
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getHouseNumber();
 
     /**
-     * @param $houseNumber
+     * @param string $houseNumber
      * @return ShopperInterface
      */
     public function setHouseNumber($houseNumber);

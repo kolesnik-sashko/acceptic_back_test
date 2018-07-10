@@ -29,7 +29,7 @@ interface OrderInterface
     public function getOrderTotal();
 
     /**
-     * @param $orderTotal int
+     * @param int $orderTotal 
      * @return OrderInterface
      */
     public function setOrderTotal($orderTotal);
@@ -40,7 +40,7 @@ interface OrderInterface
     public function getToken();
 
     /**
-     * @param $token string
+     * @param string $token 
      * @return OrderInterface
      */
     public function setToken($token);

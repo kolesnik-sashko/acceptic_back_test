@@ -20,7 +20,6 @@ class InstallSchema implements InstallSchemaInterface
     {
         $installer = $setup;
         $installer->startSetup();
-
         if (!$installer->tableExists(ShopperInterface::TABLE_NAME)) {
             $shopperTable = $installer->getConnection()->newTable(
                 $installer->getTable(ShopperInterface::TABLE_NAME)
@@ -82,7 +81,6 @@ class InstallSchema implements InstallSchemaInterface
             )->setComment('Shopper Table');
             $installer->getConnection()->createTable($shopperTable);
         }
-
         if (!$installer->tableExists(OrderInterface::TABLE_NAME)) {
             $orderTable = $installer->getConnection()->newTable(
                 $installer->getTable(OrderInterface::TABLE_NAME)
@@ -130,10 +128,8 @@ class InstallSchema implements InstallSchemaInterface
                 ShopperInterface::ID_COLUMN,
                 Table::ACTION_CASCADE
             )->setComment('Order Table');
-
             $installer->getConnection()->createTable($orderTable);
         }
-
         $installer->endSetup();
     }
 }

@@ -18,7 +18,7 @@ class Save extends AbstractAction
     {
         $isPost = $this->getRequest()->getPost();
         if ($isPost) {
-            $model = $this->getOrderModel();
+            $model = $this->getShopperModel();
             $formData = $this->getRequest()->getParams();
             if(!empty($formData[static::QUERY_PARAM_ID])) {
                 $id = $formData[static::QUERY_PARAM_ID];

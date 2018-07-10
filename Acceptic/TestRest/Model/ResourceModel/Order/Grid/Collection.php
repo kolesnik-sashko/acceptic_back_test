@@ -19,6 +19,19 @@ use Acceptic\TestRest\Api\Schema\ShopperInterface;
 
 class Collection extends GridCollection implements SearchResultInterface
 {
+    /**
+     * Collection constructor.
+     * @param EntityFactoryInterface $entityFactory
+     * @param LoggerInterface $logger
+     * @param FetchStrategyInterface $fetchStrategy
+     * @param ManagerInterface $eventManager
+     * @param StoreManagerInterface $storeManager
+     * @param AbstractDb $mainTable
+     * @param $resourceModel
+     * @param $model
+     * @param AdapterInterface|null $connection
+     * @param AbstractDb|null $resource
+     */
     public function __construct(
         EntityFactoryInterface $entityFactory,
         LoggerInterface $logger,
@@ -113,6 +126,10 @@ class Collection extends GridCollection implements SearchResultInterface
     {
         return $this;
     }
+
+    /**
+     * Join shopper table
+     */
     protected function _initSelect()
     {
         parent::_initSelect();

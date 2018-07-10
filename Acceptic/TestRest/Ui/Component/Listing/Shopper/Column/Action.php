@@ -13,6 +13,7 @@ class Action extends Column
 {
     /** Url path */
     const ROW_EDIT_URL = 'acceptic_rest/shopper/edit';
+    
     /** @var UrlInterface */
     protected $_urlBuilder;
 
@@ -66,7 +67,6 @@ class Action extends Column
                 }
             }
         }
-
         return $dataSource;
     }
 }

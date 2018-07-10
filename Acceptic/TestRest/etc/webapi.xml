@@ -18,7 +18,6 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-
     <route method="POST" url="/V1/order/create">
         <service class="Acceptic\TestRest\Api\OrderManagementInterface" method="createNewOrder"/>
         <resources>

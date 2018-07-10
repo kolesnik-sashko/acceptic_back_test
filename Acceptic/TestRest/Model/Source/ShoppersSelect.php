@@ -10,18 +10,26 @@ namespace Acceptic\TestRest\Model\Source;
 
 use Magento\Framework\Option\ArrayInterface;
 
+use Acceptic\TestRest\Model\ResourceModel\Shopper\Collection;
 use Acceptic\TestRest\Model\ResourceModel\Shopper\CollectionFactory;
 
 class ShoppersSelect implements ArrayInterface
 {
+    /**
+     * @var Collection
+     */
     protected $shoppersCollection;
-
+    
     public function __construct(
         CollectionFactory $factory
     )
     {
         $this->shoppersCollection = $factory->create();
     }
+
+    /**
+     * @return array
+     */
     public function toOptionArray()
     {
         $result = [];

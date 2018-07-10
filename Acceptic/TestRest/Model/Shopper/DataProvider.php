@@ -11,6 +11,15 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     protected $_loadedData;
 
+    /**
+     * DataProvider constructor.
+     * @param string $name
+     * @param string $primaryFieldName
+     * @param string $requestFieldName
+     * @param CollectionFactory $shopperCollectionFactory
+     * @param array $meta
+     * @param array $data
+     */
     public function __construct(
         $name,
         $primaryFieldName,
@@ -23,6 +32,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
+    /** {@inheritdoc} */
     public function getData()
     {
         if (isset($this->_loadedData)) {

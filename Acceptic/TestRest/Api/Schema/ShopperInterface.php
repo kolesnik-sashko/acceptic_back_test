@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sofia
- * Date: 08.07.2018
- * Time: 13:35
- */
 
 namespace Acceptic\TestRest\Api\Schema;
 

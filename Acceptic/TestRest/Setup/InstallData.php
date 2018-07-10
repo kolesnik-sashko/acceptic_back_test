@@ -15,19 +15,42 @@ use Acceptic\TestRest\Api\ShopperRepositoryInterface;
 
 class InstallData implements InstallDataInterface
 {
+    /**
+     * @var ShopperFactory
+     */
     private $shopperFactory;
 
+    /**
+     * @var ShopperRepositoryInterface
+     */
     private $shopperRepository;
 
+    /**
+     * @var OrderFactory
+     */
     private $orderFactory;
 
+    /**
+     * @var OrderRepositoryInterface
+     */
     private $orderRepository;
 
     /** @var  LoggerInterface */
     private $logger;
 
+    /**
+     * @var array
+     */
     private $cities = ['London', 'New York', 'Paris', 'Milan', 'Kiev'];
 
+    /**
+     * InstallData constructor.
+     * @param ShopperFactory $shopperFactory
+     * @param ShopperRepositoryInterface $shopperRepository
+     * @param OrderFactory $orderFactory
+     * @param OrderRepositoryInterface $orderRepository
+     * @param LoggerInterface $logger
+     */
     public function __construct(
         ShopperFactory $shopperFactory,
         ShopperRepositoryInterface $shopperRepository,
@@ -42,6 +65,10 @@ class InstallData implements InstallDataInterface
         $this->logger            = $logger;
     }
 
+    /**
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
+     */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         for ($shopperIndex = 1; $shopperIndex <= 10; $shopperIndex++) {

@@ -16,6 +16,7 @@ use Magento\Framework\View\Result\Page;
 use Magento\Framework\Registry;
 
 use Acceptic\TestRest\Api\Data\ShopperInterface;
+use Acceptic\TestRest\Api\Data\OrderInterface;
 use Acceptic\TestRest\Api\ShopperRepositoryInterface;
 use Acceptic\TestRest\Model\ShopperFactory;
 use Acceptic\TestRest\Model\OrderFactory;
@@ -83,14 +84,16 @@ abstract class AbstractAction extends Action
         PageFactory $pageFactory,
         ShopperRepositoryInterface $shopperRepository,
         OrderRepositoryInterface $orderRepository,
-        ShopperFactory $factory,
+        ShopperFactory $shopperfactory,
+        OrderFactory $orderFactory,
         LoggerInterface $logger
     ){
         $this->registry          = $registry;
         $this->pageFactory       = $pageFactory;
         $this->shopperRepository = $shopperRepository;
         $this->orderRepository   = $orderRepository;
-        $this->modelFactory      = $factory;
+        $this->orderFactory      = $orderFactory;
+        $this->shopperFactory    = $shopperfactory;
         $this->logger            = $logger;
         parent::__construct($context);
     }
@@ -133,7 +136,7 @@ abstract class AbstractAction extends Action
     protected function getShopperModel()
     {
         if (null === $this->model) {
-            $this->model = $this->modelFactory->create();
+            $this->model = $this->shopperFactory->create();
         }
         return $this->model;
     }
@@ -144,7 +147,7 @@ abstract class AbstractAction extends Action
     protected function getOrderModel()
     {
         if (null === $this->model) {
-            $this->model = $this->modelFactory->create();
+            $this->model = $this->orderFactory->create();
         }
         return $this->model;
     }

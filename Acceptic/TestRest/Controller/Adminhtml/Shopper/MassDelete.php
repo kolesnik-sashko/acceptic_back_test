@@ -17,20 +17,20 @@ class MassDelete extends AbstractAction
     {
         $ids = $this->getRequest()->getParam('selected');
         if (count($ids)) {
-            foreach ($ids as $id) {
-                try {
-                    $this->shoperRepository->deleteById($id);
-                } catch (\Exception $e) {
-                    $this->logger->error($e->getMessage());
-                    $this->logger->critical(
-                        sprintf("Can't delete shopper: %d", $id)
-                    );
-                    $this->messageManager->addErrorMessage(__('Shopper with id %1 not deleted', $id));
+            try {
+                foreach ($ids as $id) {
+                    $this->shopperRepository->deleteById($id);
                 }
+                $this->messageManager->addSuccessMessage(
+                    __('A total of %1 record(s) has been deleted.', count($ids))
+                );
+            } catch (\Exception $e) {
+                $this->logger->error($e->getMessage());
+                $this->logger->critical(
+                    sprintf("Can't delete shopper: %d", $id)
+                );
+                $this->messageManager->addErrorMessage(__('Shopper with id %1 not deleted', $id));
             }
-            $this->messageManager->addSuccessMessage(
-                __('A total of %1 record(s) has been deleted.', count($ids))
-            );
         } else {
             $this->logger->error("Parameter ids must be array and not empty");
             $this->messageManager->addWarningMessage("Please select items to delete");

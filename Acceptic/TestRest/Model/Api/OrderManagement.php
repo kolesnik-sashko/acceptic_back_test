@@ -11,12 +11,27 @@ use Acceptic\TestRest\Api\Schema\OrderInterface as Schema;
 
 class OrderManagement implements OrderManagementInterface
 {
+    /**
+     * @var OrderInterfaceFactory
+     */
     protected $factory;
 
+    /**
+     * @var OrderRepositoryInterface
+     */
     protected $repository;
 
+    /**
+     * @var SearchCriteriaBuilder
+     */
     protected $searchCriteriaBuilder;
 
+    /**
+     * OrderManagement constructor.
+     * @param OrderInterfaceFactory $factory
+     * @param OrderRepositoryInterface $repository
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     */
     public function __construct(
         OrderInterfaceFactory $factory,
         OrderRepositoryInterface $repository,

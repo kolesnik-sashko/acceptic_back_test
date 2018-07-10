@@ -11,7 +11,6 @@ use Acceptic\TestRest\Model\ResourceModel\Order as ResourceModel;
 
 class Order extends AbstractModel implements OrderInterface, IdentityInterface
 {
-
     protected function _construct()
     {
         $this->_init(ResourceModel::class);

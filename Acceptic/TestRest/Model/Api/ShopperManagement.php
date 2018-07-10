@@ -2,6 +2,7 @@
 
 namespace Acceptic\TestRest\Model\Api;
 
+use Acceptic\TestRest\Api\Data\ShopperInterface;
 use Acceptic\TestRest\Api\Data\ShopperInterfaceFactory;
 use Acceptic\TestRest\Api\ShopperManagementInterface;
 use Acceptic\TestRest\Api\ShopperRepositoryInterface;
@@ -9,10 +10,21 @@ use Acceptic\TestRest\Api\Schema\ShopperInterface as Schema;
 
 class ShopperManagement implements ShopperManagementInterface
 {
+    /**
+     * @var ShopperInterfaceFactory
+     */
     protected $factory;
 
+    /**
+     * @var ShopperRepositoryInterface
+     */
     protected $repository;
 
+    /**
+     * ShopperManagement constructor.
+     * @param ShopperInterfaceFactory $factory
+     * @param ShopperRepositoryInterface $repository
+     */
     public function __construct(
         ShopperInterfaceFactory    $factory,
         ShopperRepositoryInterface $repository
@@ -64,6 +76,10 @@ class ShopperManagement implements ShopperManagementInterface
         }
     }
 
+    /**
+     * @param ShopperInterface $obj
+     * @param array $data
+     */
     private function setObjectData($obj, $data)
     {
         $obj->setEmail($data[Schema::EMAIL_COLUMN])
