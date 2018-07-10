@@ -10,5 +10,5 @@ interface OrderInterface
     const ID_COLUMN          = 'order_id';
     const SHOPPER_ID_COLUMN  = 'shopper_id';
     const ORDER_TOTAL_COLUMN = 'order_total';
-    const TOKEN_COLUMN       = 'token';
+    const TOKEN_COLUMN       = 'order_token';
 }
