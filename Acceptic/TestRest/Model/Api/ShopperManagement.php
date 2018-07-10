@@ -30,8 +30,8 @@ class ShopperManagement implements ShopperManagementInterface
             $this->repository->save($obj);
             return json_encode($obj->getId());
         }catch (\Exception $e){
-            $returnArray['error'] = $e->getMessage();
-            $returnArray['status'] = 0;
+            $returnArray['errorMsg'] = $e->getMessage();
+            $returnArray['errorCode'] = $e->getCode();
             return json_encode($returnArray);
         }
     }
@@ -45,8 +45,8 @@ class ShopperManagement implements ShopperManagementInterface
             $this->repository->save($obj);
             return json_encode($obj->getId());
         }catch (\Exception $e){
-            $returnArray['error'] = $e->getMessage();
-            $returnArray['status'] = 0;
+            $returnArray['errorMsg'] = $e->getMessage();
+            $returnArray['errorCode'] = $e->getCode();
             return json_encode($returnArray);
         }
     }
@@ -58,8 +58,8 @@ class ShopperManagement implements ShopperManagementInterface
             $obj = $this->repository->getById($shopperId);
             return json_encode($obj);
         }catch (\Exception $e){
-            $returnArray['error'] = $e->getMessage();
-            $returnArray['status'] = 0;
+            $returnArray['errorMsg'] = $e->getMessage();
+            $returnArray['errorCode'] = $e->getCode();
             return json_encode($returnArray);
         }
     }

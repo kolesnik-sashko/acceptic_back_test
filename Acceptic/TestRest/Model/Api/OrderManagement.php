@@ -38,8 +38,8 @@ class OrderManagement implements OrderManagementInterface
             $this->repository->save($obj);
             return json_encode($obj->getId());
         }catch (\Exception $e){
-            $returnArray['error'] = $e->getMessage();
-            $returnArray['status'] = 0;
+            $returnArray['errorMsg'] = $e->getMessage();
+            $returnArray['errorCode'] = $e->getCode();
             return json_encode($returnArray);
         }
     }
@@ -47,8 +47,14 @@ class OrderManagement implements OrderManagementInterface
     /** {@inheritdoc} */
     public function getOrders($shopperId)
     {
-        $searchCriteria = $this->searchCriteriaBuilder->addFilter(Schema::SHOPPER_ID_COLUMN, $shopperId)->create();
-        $result = $this->repository->getList($searchCriteria);
-        return json_encode($result);
+        try{
+            $searchCriteria = $this->searchCriteriaBuilder->addFilter(Schema::SHOPPER_ID_COLUMN, $shopperId)->create();
+            $result = $this->repository->getList($searchCriteria);
+            return json_encode($result);
+        }catch (\Exception $e){
+            $returnArray['errorMsg'] = $e->getMessage();
+            $returnArray['errorCode'] = $e->getCode();
+            return json_encode($returnArray);
+        }
     }
 }
