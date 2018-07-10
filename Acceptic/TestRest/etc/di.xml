@@ -11,23 +11,24 @@
                 type="Acceptic\TestRest\Model\OrderRepository" />
     <preference for="Acceptic\TestRest\Api\OrderManagementInterface"
                 type="Acceptic\TestRest\Model\Api\OrderManagement" />
-
-
     <type name="Acceptic\TestRest\Model\ResourceModel\Order\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">acceptic_order</argument>
-            <argument name="eventPrefix" xsi:type="string">ac_or_records_grid_collection</argument>
-            <argument name="eventObject" xsi:type="string">ac_or_grid_records_collection</argument>
             <argument name="resourceModel" xsi:type="string">Acceptic\TestRest\Model\ResourceModel\Order</argument>
         </arguments>
     </type>
-
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="acceptic_order_listing_data_source" xsi:type="string">Acceptic\TestRest\Model\ResourceModel\Order\Grid\Collection</item>
+                <item name="acceptic_shopper_listing_data_source" xsi:type="string">Acceptic\TestRest\Model\ResourceModel\Shopper\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
-
+    <virtualType name="Acceptic\TestRest\Model\ResourceModel\Shopper\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">acceptic_shopper</argument>
+            <argument name="resourceModel" xsi:type="string">Acceptic\TestRest\Model\ResourceModel\Shopper</argument>
+        </arguments>
+    </virtualType>
 </config>
