@@ -19,7 +19,7 @@ class Edit extends AbstractAction
         $id = $this->getRequest()->getParam(static::QUERY_PARAM_ID);
         if (!empty($id)) {
             try {
-                $model = $this->orderRepository->get($id);
+                $model = $this->orderRepository->getById($id);
             } catch (NoSuchEntityException $exception) {
                 $this->logger->error($exception->getMessage());
                 $this->messageManager->addErrorMessage(__('Entity with id %1 not found', $id));

@@ -1,6 +1,6 @@
 <?php
 
-namespace Acceptic\TestRest\Controller\Adminhtml\Notification;
+namespace Acceptic\TestRest\Controller\Adminhtml\Shopper;
 
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
@@ -22,7 +22,7 @@ class Save extends AbstractAction
             $formData = $this->getRequest()->getParams();
             if(!empty($formData[static::QUERY_PARAM_ID])) {
                 $id = $formData[static::QUERY_PARAM_ID];
-                $model = $this->shopperRepository->get($id);
+                $model = $this->shopperRepository->getById($id);
             } else {
                 $formData[static::QUERY_PARAM_ID] = null;
             }

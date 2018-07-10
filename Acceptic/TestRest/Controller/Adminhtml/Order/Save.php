@@ -23,7 +23,7 @@ class Save extends AbstractAction
             $formData = $this->getRequest()->getParams();
             if(!empty($formData[static::QUERY_PARAM_ID])) {
                 $id = $formData[static::QUERY_PARAM_ID];
-                $model = $this->orderRepository->get($id);
+                $model = $this->orderRepository->getById($id);
             } else {
                 $formData[static::QUERY_PARAM_ID] = null;
             }
