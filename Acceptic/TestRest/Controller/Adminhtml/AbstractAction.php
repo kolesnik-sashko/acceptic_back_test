@@ -2,6 +2,7 @@
 
 namespace Acceptic\TestRest\Controller\Adminhtml;
 
+use Acceptic\TestRest\Api\OrderRepositoryInterface;
 use Magento\Framework\App\ActionInterface;
 use Psr\Log\LoggerInterface;
 
@@ -80,15 +81,17 @@ abstract class AbstractAction extends Action
         Context $context,
         Registry $registry,
         PageFactory $pageFactory,
-        ShopperRepositoryInterface $repository,
+        ShopperRepositoryInterface $shopperRepository,
+        OrderRepositoryInterface $orderRepository,
         ShopperFactory $factory,
         LoggerInterface $logger
     ){
-        $this->registry       = $registry;
-        $this->pageFactory    = $pageFactory;
-        $this->repository     = $repository;
-        $this->modelFactory   = $factory;
-        $this->logger         = $logger;
+        $this->registry          = $registry;
+        $this->pageFactory       = $pageFactory;
+        $this->shopperRepository = $shopperRepository;
+        $this->orderRepository   = $orderRepository;
+        $this->modelFactory      = $factory;
+        $this->logger            = $logger;
         parent::__construct($context);
     }
 
@@ -136,7 +139,7 @@ abstract class AbstractAction extends Action
     }
 
     /**
-     * @return ShopperInterface
+     * @return OrderInterface
      */
     protected function getOrderModel()
     {
