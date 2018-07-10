@@ -10,7 +10,7 @@ namespace Acceptic\TestRest\Model\Source;
 
 use Magento\Framework\Option\ArrayInterface;
 
-use Acceptic\TestRest\Model\ResourceModel\Order\CollectionFactory;
+use Acceptic\TestRest\Model\ResourceModel\Shopper\CollectionFactory;
 
 class ShoppersSelect implements ArrayInterface
 {
