@@ -26,8 +26,6 @@ class Collection extends GridCollection implements SearchResultInterface
         ManagerInterface $eventManager,
         StoreManagerInterface $storeManager,
         $mainTable,
-        $eventPrefix,
-        $eventObject,
         $resourceModel,
         $model = Document::class,
         AdapterInterface $connection = null,
@@ -41,8 +39,6 @@ class Collection extends GridCollection implements SearchResultInterface
             $connection,
             $resource
         );
-        $this->_eventPrefix = $eventPrefix;
-        $this->_eventObject = $eventObject;
         $this->_init($model, $resourceModel);
         $this->setMainTable($mainTable);
     }
