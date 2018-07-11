@@ -11,10 +11,11 @@ use Magento\Framework\Event\ManagerInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
+use Magento\Framework\DB\Adapter\AdapterInterface;
 
 use Acceptic\TestRest\Model\ResourceModel\Order\Collection as GridCollection;
-use Acceptic\TestRest\Api\Schema\OrderSchemaInterface;
-use Magento\Framework\DB\Adapter\AdapterInterface;
+use Acceptic\TestRest\Api\Schema\ShopperInterface;
+
 
 class Collection extends GridCollection implements SearchResultInterface
 {
@@ -23,14 +24,13 @@ class Collection extends GridCollection implements SearchResultInterface
         LoggerInterface $logger,
         FetchStrategyInterface $fetchStrategy,
         ManagerInterface $eventManager,
-        AdapterInterface $adapter,
         StoreManagerInterface $storeManager,
         $mainTable,
         $eventPrefix,
         $eventObject,
         $resourceModel,
         $model = Document::class,
-        $connection = null,
+        AdapterInterface $connection = null,
         AbstractDb $resource = null
     ) {
         parent::__construct(
@@ -38,8 +38,6 @@ class Collection extends GridCollection implements SearchResultInterface
             $logger,
             $fetchStrategy,
             $eventManager,
-            $adapter,
-            $storeManager,
             $connection,
             $resource
         );
@@ -123,8 +121,8 @@ class Collection extends GridCollection implements SearchResultInterface
     {
         parent::_initSelect();
         $this->getSelect()->joinLeft(
-            ['shopperTable' => $this->getTable(OrderSchemaInterface::TABLE_NAME)],
-            'main_table.shopper_id = authorTable.shopper_id',
+            ['shopperTable' => $this->getTable(ShopperInterface::TABLE_NAME)],
+            'main_table.shopper_id = shopperTable.shopper_id',
             [
                 'shopper_name' => "CONCAT(shopperTable.name, ' ', shopperTable.last_name)"
             ]
